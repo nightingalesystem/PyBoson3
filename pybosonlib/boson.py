@@ -332,8 +332,10 @@ class BosonControl():
         minor = sv.fields['xCenter']
         patch = sv.fields['yCenter']
         print ('SW version is %d.%d.%d' %(major, minor, patch))
-        
-                
+    
+    def bosonlookupFPATempDegCx10(self):
+        return self.sendCmdAndGetReply('FPATEMPDEDCx10')
+    
     def getFpaTempTable(self):
         fpa_temp_table = self.sendCmdAndGetReply('FPAGETTEMPTABLE')
         #print('stuffed packet is %s' % fpa_temp_table)
