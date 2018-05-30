@@ -69,6 +69,7 @@ class BosonControl():
         'SCALERGETMAXZOOM'    :    { 'id': bytearray([0x00, 0x0D, 0x00, 0x03]), 'retbytes': 4, 'type': 'int' },
         'GETSWVERSION'        :    { 'id': bytearray([0x00, 0x05, 0x00, 0x56]), 'retbytes': 12},
         'SCALERSETZOOM'       :    { 'id': bytearray([0x00, 0x0D, 0x00, 0x02]), 'retbytes': 0},
+        'RunFFC'              :    { 'id': bytearray([0x00, 0x05, 0x00, 0x07]), 'retbytes': 0},
     }
     
     LUT = OrderedDict([
@@ -379,7 +380,10 @@ class BosonControl():
         zoom_params.fields['zoom'] = value
         
         return self.sendCmdAndGetReply('SCALERSETZOOM', zoom_params.toByteArray())
-        
+    
+    def bosonRunFFC():
+        return self.sendCmdAndGetReply('RunFFC')
+
     def test_LUT(self):
         print ('Part number is %s' % self.getPartNumber())
         sleep(1)
