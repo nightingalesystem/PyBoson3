@@ -381,7 +381,7 @@ class BosonControl():
         
         return self.sendCmdAndGetReply('SCALERSETZOOM', zoom_params.toByteArray())
     
-    def bosonRunFFC():
+    def bosonRunFFC(self):
         return self.sendCmdAndGetReply('RunFFC')
 
     def test_LUT(self):
